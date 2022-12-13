@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""class filestorage"""
+'''
+    class filestorage
+'''
 import json
 import models
 
