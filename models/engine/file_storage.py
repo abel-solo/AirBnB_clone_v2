@@ -11,6 +11,16 @@ from models.amenity import Amenity
 from models.review import Review
 
 
+classes = {
+    'BaseModel': BaseModel,
+    'User': User,
+    'State': State,
+    'City': City,
+    'Amenity': Amenity,
+    'Place': Place,
+    'Review': Review
+}
+
 class FileStorage:
     '''
         Serializes instances to JSON file and deserializes to JSON file.
