@@ -1,25 +1,21 @@
 #!/usr/bin/python3
 """ Review module for the HBNB project """
-from models.base_model import BaseModel, Base
-from models import storage_type
+from os import getenv
 from sqlalchemy import Column, String, ForeignKey
-from uuid import uuid4
+from sqlalchemy.orm import relationship
+from models.base_model import BaseModel, Base
 
 
 class Review(BaseModel, Base):
-    ''' defines Review class '''
-    __tablename__ = 'reviews'
-    if storage_type == 'db':
+    '''
+        Implementation for the Review.
+    '''
+    __tablename__ = "reviews"
+    if getenv("HBNB_TYPE_STORAGE") == "db":
         text = Column(String(1024), nullable=False)
-        place_id = Column(String(60), ForeignKey('places.id'), nullable=False)
-        user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-
-        def __init__(self, **kwargs):
-            self.id = str(uuid4())
-            for key, value in kwargs.items():
-                setattr(self, key, value)
-
+        place_id = Column(String(60), ForeignKey("places.id"), nullable=False)
+        user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
     else:
-        place_id = ''
-        user_id = ''
-        text = ''
+        place_id = ""
+        user_id = ""
+        text = ""
