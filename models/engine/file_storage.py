@@ -46,5 +46,12 @@ class FileStorage:
                 temp = json.load(f)
                 for key, val in temp.items():
                         self.all()[key] = classes[val['__class__']](**val)
+	def delete(self, obj=None):
+        ''' deletes objects from __objects if it's inside else do nothing '''
+        if obj is not None:
+            obj_keys = FileStorage.__objects.keys()
+            obj_key = f'{obj.__class__.__name__}.{obj.id}'
+            if obj_key in obj_keys:
+                del FileStorage.__objects[obj_key]
         except FileNotFoundError:
             pass
