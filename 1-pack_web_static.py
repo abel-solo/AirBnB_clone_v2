@@ -3,13 +3,14 @@
 from fabric.api import local
 import time
 
+
 def do_pack():
-    """Generates a .tgz archive from web_static folder"""
+    """generate .tgz archive of web_static/ folder"""
+    time_now = strftime("%Y%M%d%H%M%S")
     try:
         local("mkdir -p versions")
-        local("tar -cvzf versions/web_static_{}.tgz web_static/".
-              format(time.strftime("%Y%m%d%H%M%S")))
-        return ("versions/web_static_{}.tgz".format(time.
-                                                    strftime("%Y%m%d%H%M%S")))
+        file_name = "versions/web_static_{}.tgz".format(time_now)
+        local("tar -cvzf {} web_static/".format(file_name))
+        return file_name
     except:
         return None
