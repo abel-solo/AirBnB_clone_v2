@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-script that generates a .tgz archive from the contents of the web_static folder
-"""
+"""script that generates .tgz archive from the contents of the web_static folder"""
 from fabric.api import local
 import time
 
