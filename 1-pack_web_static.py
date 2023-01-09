@@ -3,7 +3,6 @@
 from fabric.api import local
 import time
 
-
 def do_pack():
     """Generates a .tgz archive from web_static folder"""
     try:
