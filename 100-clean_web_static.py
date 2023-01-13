@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" test file """
+""" function that deploy """
 import os.path
 import os
 from fabric.api import *
@@ -12,6 +12,7 @@ env.user = "ubuntu"
 
 
 def do_clean(number=0):
+    """ function that cleans """
     number = 1 if int(number) == 0 else int(number)
 
     files = sorted(os.listdir("versions"))
