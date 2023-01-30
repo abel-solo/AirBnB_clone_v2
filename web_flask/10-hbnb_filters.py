@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-
+""" A script that starts a flask web application """
 from models import storage
 from flask import Flask, render_template
 
-app = Flask('web_flask')
+app = Flask(__name__)
 
 
 @app.route('/hbnb_filters', strict_slashes=False)
-def display_filters():
+def hbnb_filters():
     states = storage.all('State')
     amenities = storage.all('Amenity')
     return render_template('10-hbnb_filters.html',
